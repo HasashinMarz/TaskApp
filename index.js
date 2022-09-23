@@ -2,11 +2,21 @@ window.addEventListener('load', ()=> {
     const form = document.querySelector("#new-task-form");
     const input = document.querySelector('#new-task-input');
     const list_el = document.querySelector('#tasks');
+    var counter = 0; //counter for counting the tasks
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const task = input.value;
+        const tasks = input.value;
+        if(tasks == ""){
+            window.alert("Enter a task!");
+            return false;
+        }
+
+        counter++;
+        e.preventDefault();
+
+        const task = counter + '.) ' + tasks;
         const task_el = document.createElement('div');
         task_el.classList.add('task');  
         
